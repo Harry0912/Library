@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts/app')
 
 @section('main')
 <div>
@@ -31,6 +31,6 @@
 <hr>
 
 <div>
-    <a>新增書籍</a>
+    <a href="{{ route('create') }}">新增書籍</a>
 </div>
 @endsection

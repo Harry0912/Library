@@ -17,3 +17,5 @@ use App\Http\Controllers\LibraryController;
 Auth::routes();
 
 Route::get('/', [LibraryController::class, 'index']);
+Route::get('/create', [LibraryController::class, 'create'])->name('create');
+Route::post('/create/store', [LibraryController::class, 'store'])->name('store');
