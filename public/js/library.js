@@ -30,19 +30,38 @@ function update(bookId, url, token)
     });
 }
 
+
 function destroy(id, url, token)
 {
-    console.log(id);
-    console.log(url);
-    console.log(token);
+    var isConfirm = confirm('Do you want to delete the book?');
+
+    if (isConfirm) {
+        $.ajax({
+            type:'DELETE',
+            url:url,
+            data:{_token:token, id:id},
+            success:function() {
+                alert('刪除書籍成功!');
+                document.location.href = '/';
+            }
+        });
+    }
+}
+
+function search(url, token)
+{
+    var keyword = $('#keyword').val();
+    var type = $('input[name="search"]:checked').val();
 
     $.ajax({
-        type:'DELETE',
+        type:'POST',
         url:url,
-        data:{_token:token, id:id},
-        success:function() {
-            alert('刪除書籍成功!');
-            document.location.href = '/';
+        data:{_token:token, keyword:keyword, type:type},
+        success:function(data)
+        {
+            $('body').html(data);
+            $('#keyword').val(keyword);
+            $('input[value="'+type+'"]').attr('checked', 'checked');
         }
     });
 }

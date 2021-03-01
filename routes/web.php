@@ -23,3 +23,4 @@ Route::post('/create/store', [LibraryController::class, 'store'])->name('store')
 Route::get('/edit/{id}', [LibraryController::class, 'edit'])->name('edit');
 Route::patch('edit/{id}/update', [LibraryController::class, 'update'])->name('update');
 Route::delete('/delete/{id}', [LibraryController::class, 'destroy'])->name('destroy');
+Route::post('/search', [LibraryController::class, 'search'])->name('search');
