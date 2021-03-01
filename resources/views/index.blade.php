@@ -3,10 +3,10 @@
 @section('main')
 <div>
     <input type="text" id="keyword">
-    <input type="radio" name="search">書名
-    <input type="radio" name="search">作者
-    <input type="radio" name="search">出版社
-    <input type="submit" value="搜尋">
+    <input type="radio" name="search" value="book" checked>書名
+    <input type="radio" name="search" value="author">作者
+    <input type="radio" name="search" value="publishing">出版社
+    <button onclick="search('{{ route('search') }}', '{{ csrf_token() }}')">搜尋</button>
     <input type="reset" value="清除">
     <hr>
 

@@ -29,3 +29,21 @@ function update(bookId, url, token)
         }
     });
 }
+
+function search(url, token)
+{
+    var keyword = $('#keyword').val();
+    var type = $('input[name="search"]:checked').val();
+
+    $.ajax({
+        type:'POST',
+        url:url,
+        data:{_token:token, keyword:keyword, type:type},
+        success:function(data)
+        {
+            $('body').html(data);
+            $('#keyword').val(keyword);
+            $('input[value="'+type+'"]').attr('checked', 'checked');
+        }
+    });
+}
