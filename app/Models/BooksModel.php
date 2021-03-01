@@ -12,6 +12,8 @@ class BooksModel extends Model
     protected $table = 'books';
     protected $primaryKey = 'Id';
 
+    public $timestamps = false;
+
     public function users()
     {
         return $this->hasOne(

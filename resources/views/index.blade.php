@@ -26,7 +26,7 @@
             <h2><a href="{{ route('show', $value) }}">{{ $value->Name }}</a></h2>
             <p>作者 : {{ $value->users->name }}</p>
             <p>出版社 : {{ $value->publishing->Name }}</p>
-            <button>編輯</button>
+            <a href="{{ route('edit', $value) }}">編輯</a>
             <button>刪除</button>
         </div>
         <hr>

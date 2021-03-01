@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests\StoreRequest;
+use App\Http\Requests\UpdateRequest;
+
 use App\Models\BooksModel;
 use App\Models\PublishingModel;
 use App\Models\UserModel;
@@ -63,5 +66,28 @@ class LibraryController extends Controller
             'UserId' => $userId,
             'Publishing' => $publishing
         ]);
+    }
+
+    public function edit($id)
+    {
+        $data = $this->BooksModel
+            ->with('users')
+            ->with('publishing')
+            ->where('Id', '=', $id)
+            ->first();
+
+        return view('edit', ['data' => $data]);
+    }
+
+    public function update(UpdateRequest $request)
+    {
+        $id = $request->id;
+        $content = $request->content;
+
+        $data = $this->BooksModel
+            ->where('Id', '=', $id)
+            ->first();
+        $data->Content = $content;
+        $data->save();
     }
 }

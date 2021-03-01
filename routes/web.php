@@ -20,3 +20,5 @@ Route::get('/', [LibraryController::class, 'index']);
 Route::get('/show/{id}', [LibraryController::class, 'show'])->name('show');
 Route::get('/create', [LibraryController::class, 'create'])->name('create');
 Route::post('/create/store', [LibraryController::class, 'store'])->name('store');
+Route::get('/edit/{id}', [LibraryController::class, 'edit'])->name('edit');
+Route::patch('edit/{id}/update', [LibraryController::class, 'update'])->name('update');

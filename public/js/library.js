@@ -14,3 +14,18 @@ function store(userId, url, token)
         }
     });
 }
+
+function update(bookId, url, token)
+{
+    var content = $('#content').val();
+
+    $.ajax({
+        type:'PATCH',
+        url:url,
+        data:{_token:token, id:bookId, content:content},
+        success:function() {
+            alert('編輯書籍成功!');
+            document.location.href = '/';
+        }
+    });
+}

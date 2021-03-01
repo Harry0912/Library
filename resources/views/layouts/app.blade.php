@@ -80,5 +80,6 @@
     <div style="margin:10px">@yield('main')</div>
     <div style="margin:10px">@yield('show')</div>
     <div style="margin:10px">@yield('create')</div>
+    <div style="margin:10px">@yield('edit')</div>
 </body>
 </html>
