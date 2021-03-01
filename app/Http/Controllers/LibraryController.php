@@ -90,4 +90,12 @@ class LibraryController extends Controller
         $data->Content = $content;
         $data->save();
     }
+
+    public function destroy($id)
+    {
+        $this->BooksModel
+            ->where('Id', '=', $id)
+            ->first()
+            ->delete();
+    }
 }

@@ -29,3 +29,20 @@ function update(bookId, url, token)
         }
     });
 }
+
+function destroy(id, url, token)
+{
+    console.log(id);
+    console.log(url);
+    console.log(token);
+
+    $.ajax({
+        type:'DELETE',
+        url:url,
+        data:{_token:token, id:id},
+        success:function() {
+            alert('刪除書籍成功!');
+            document.location.href = '/';
+        }
+    });
+}

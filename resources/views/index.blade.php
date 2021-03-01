@@ -27,7 +27,7 @@
             <p>作者 : {{ $value->users->name }}</p>
             <p>出版社 : {{ $value->publishing->Name }}</p>
             <a href="{{ route('edit', $value) }}">編輯</a>
-            <button>刪除</button>
+            <button onclick="destroy({{ $value->Id }}, '{{ route('destroy', $value) }}', '{{ csrf_token() }}')">刪除</button>
         </div>
         <hr>
     @endforeach
