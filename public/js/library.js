@@ -1,12 +1,13 @@
 function store(userId, url, token)
 {
     var bookName = $('#bookName').val();
+    var content = $('#content').val();
     var publishing = $('#publishing').val();
 
     $.ajax({
         type:'POST',
         url:url,
-        data:{_token:token, bookName:bookName, userId:userId, publishing:publishing},
+        data:{_token:token, bookName:bookName, content:content, userId:userId, publishing:publishing},
         success:function() {
             alert('新增書籍成功!');
             document.location.href = '/';

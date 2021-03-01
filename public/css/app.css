@@ -10004,3 +10004,11 @@ h3 {
     border-color: #dee2e6;
   }
 }
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}

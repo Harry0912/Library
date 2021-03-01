@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'bookName' => 'required',
+            'content' => 'required',
             'userId' => 'required',
             'publishing' => 'required',
         ];

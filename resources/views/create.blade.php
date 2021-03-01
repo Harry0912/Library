@@ -5,6 +5,8 @@
 
 書籍名稱 : <input type="text" id="bookName">
 <hr>
+書籍內容 : <textarea id="content"></textarea>
+<hr>
 作者 : {{ $User->name }}
 <hr>
 出版社 : 

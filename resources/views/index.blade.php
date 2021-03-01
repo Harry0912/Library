@@ -8,29 +8,34 @@
     <input type="radio" name="search">出版社
     <input type="submit" value="搜尋">
     <input type="reset" value="清除">
-</div>
-<hr>
-
-<div>
-    <div>
-        <h2>JAVA SE7 全方位學習</h2>
-        <p>作者 : 韓小瑜</p>
-        <p>出版社 : 國民出版社</p>
-        <button>編輯</button>
-        <button>刪除</button>
-    </div>
     <hr>
-    <div>
-        <h2>JAVA程式設計入門與實作</h2>
-        <p>作者 : 蔡小英</p>
-        <p>出版社 : 民主出版社</p>
-        <button>編輯</button>
-        <button>刪除</button>
-    </div>
+
+    排序 : 
+    <select id="orderBy">
+        <option>發布日期(Newer)</option>
+        <option>發布日期(Older)</option>
+        <option>書名(A->Z)</option>
+        <option>書名(Z->A)</option>
+    </select>
 </div>
 <hr>
 
 <div>
-    <a href="{{ route('create') }}">新增書籍</a>
+    @foreach($data as $value)
+        <div>
+            <h2><a href="{{ route('show', $value) }}">{{ $value->Name }}</a></h2>
+            <p>作者 : {{ $value->users->name }}</p>
+            <p>出版社 : {{ $value->publishing->Name }}</p>
+            <button>編輯</button>
+            <button>刪除</button>
+        </div>
+        <hr>
+    @endforeach
+</div>
+{{ $data->links() }}
+<hr>
+
+<div>
+    <h5><a href="{{ route('create') }}">新增書籍</a></h5>
 </div>
 @endsection

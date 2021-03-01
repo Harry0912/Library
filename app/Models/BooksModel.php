@@ -11,4 +11,22 @@ class BooksModel extends Model
 
     protected $table = 'books';
     protected $primaryKey = 'Id';
+
+    public function users()
+    {
+        return $this->hasOne(
+            'App\Models\UserModel',
+            'id',
+            'UserId'
+        );
+    }
+
+    public function publishing()
+    {
+        return $this->hasOne(
+            'App\Models\PublishingModel',
+            'Id',
+            'Publishing'
+        );
+    }
 }

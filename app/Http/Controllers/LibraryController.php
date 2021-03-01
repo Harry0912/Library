@@ -18,7 +18,24 @@ class LibraryController extends Controller
     }
     public function index()
     {
-        return view('index');
+        $data = $this->BooksModel
+            ->with('users')
+            ->with('publishing')
+            ->orderBy('created_at', 'desc')
+            ->Paginate(3);
+
+        return view('index', ['data' => $data]);
+    }
+
+    public function show($id)
+    {
+        $data = $this->BooksModel
+            ->with('users')
+            ->with('publishing')
+            ->where('Id', '=', $id)
+            ->first();
+
+        return view('show', ['data' => $data]);
     }
 
     public function create(Request $request)
@@ -36,11 +53,13 @@ class LibraryController extends Controller
     public function store(StoreRequest $request)
     {
         $bookName = $request->bookName;
+        $content = $request->content;
         $userId = $request->userId;
         $publishing = $request->publishing;
         
         $this->BooksModel->insert([
             'Name' => $bookName,
+            'Content' => $content,
             'UserId' => $userId,
             'Publishing' => $publishing
         ]);

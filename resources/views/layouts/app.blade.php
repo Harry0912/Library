@@ -75,13 +75,10 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
     </div>
 
-    @yield('main')
-    @yield('create')
+    <div style="margin:10px">@yield('main')</div>
+    <div style="margin:10px">@yield('show')</div>
+    <div style="margin:10px">@yield('create')</div>
 </body>
 </html>
